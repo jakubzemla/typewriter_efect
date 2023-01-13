@@ -1,0 +1,91 @@
+* {
+  box-sizing: border-box;
+}
+
+@-webkit-keyframes typewriter {
+  to {
+    left: 100%;
+  }
+}
+
+@keyframes typewriter {
+  to {
+    left: 100%;
+  }
+}
+@-webkit-keyframes blinker {
+  to {
+    background: #fff;
+  }
+}
+@keyframes blinker {
+  to {
+    background: #fff;
+  }
+}
+@-webkit-keyframes blinker-away {
+  to {
+    width: 0em;
+  }
+}
+@keyframes blinker-away {
+  to {
+    width: 0em;
+  }
+}
+.code-frame {
+  width: 60%;
+  margin: 0 auto;
+  min-height: 600px;
+  border: 2px solid #24A7EB;
+  padding: 35px;
+  background: #111;
+  font-family: monospace;
+}
+.code-frame p {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  max-width: 100%;
+  color: #fff;
+  font-size: 25px;
+  font-weight: bold;
+  position: relative;
+}
+.code-frame p a {
+  color: #fff;
+}
+.code-frame p::before, .code-frame p::after {
+  content: "";
+  color: #111;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.code-frame .line {
+  --add: 1.5s;
+  --start: 0s;
+  --duration: 0s;
+  --delay: 1.5s;
+  --steps: 1;
+}
+.code-frame .line::before {
+  background: #111;
+  -webkit-animation: typewriter var(--duration) var(--delay) steps(var(--steps)) forwards;
+          animation: typewriter var(--duration) var(--delay) steps(var(--steps)) forwards;
+}
+.code-frame .line::after {
+  width: 0.125em;
+  background: transparent;
+  -webkit-animation: blinker 0.75s var(--start) 2 forwards, typewriter var(--duration) var(--delay) steps(var(--steps)) forwards, blinker-away 0.2s calc(var(--duration) + var(--start) + var(--add)) forwards;
+          animation: blinker 0.75s var(--start) 2 forwards, typewriter var(--duration) var(--delay) steps(var(--steps)) forwards, blinker-away 0.2s calc(var(--duration) + var(--start) + var(--add)) forwards;
+}
+.code-frame .last-line {
+  --delay: 0s;
+  width: 0.125em;
+  color: #111;
+  -webkit-animation: blinker 0.75s var(--delay) 10;
+          animation: blinker 0.75s var(--delay) 10;
+}/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,89 @@
+* {
+    box-sizing: border-box;
+}
+
+//VARIABLES
+$bg-color: #111;
+$text-color: #fff;
+
+//ANIMATIONS
+@keyframes typewriter {
+    to {
+        left: 100%;
+    }
+}
+
+@keyframes blinker {
+    to {
+        background: $text-color;
+    }
+}
+
+@keyframes blinker-away {
+    to {
+        width: 0em;
+    }
+}
+
+
+//STYLES
+.code-frame {
+    width: 60%;
+    margin: 0 auto;
+    min-height: 600px;
+    border: 2px solid #24A7EB;
+    padding: 35px;
+    background: $bg-color;
+    font-family: monospace; //do not change
+
+    p {
+        width: max-content; //do not change
+        max-width: 100%;
+        color: $text-color;
+        font: {
+            size: 25px;
+            weight: bold;
+        }
+        position: relative;
+        a {
+            color: $text-color;
+        }
+    }
+
+    p::before, p::after { // do not change
+        content: '';
+        color: $bg-color;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+    }
+
+    .line { //do not change
+        --add: 1.5s;
+        --start: 0s;
+        --duration: 0s;
+        --delay: 1.5s;
+        --steps: 1;
+        &::before {
+            background: $bg-color;
+            animation: typewriter var(--duration) var(--delay) steps(var(--steps)) forwards;
+        }
+        &::after {
+            width: 0.125em;
+            background: transparent;
+            animation:
+                blinker 0.75s var(--start) 2 forwards,
+                typewriter var(--duration) var(--delay) steps(var(--steps)) forwards,
+                blinker-away 0.2s calc(var(--duration) + var(--start) + var(--add))  forwards;
+        }
+    }
+
+    .last-line {
+        --delay: 0s;
+        width: 0.125em;
+        color: $bg-color;
+        animation: blinker 0.75s var(--delay) 10;
+    }
+}
