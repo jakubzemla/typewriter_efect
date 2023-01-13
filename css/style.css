@@ -52,9 +52,6 @@
   font-weight: bold;
   position: relative;
 }
-.code-frame p a {
-  color: #fff;
-}
 .code-frame p::before, .code-frame p::after {
   content: "";
   color: #111;

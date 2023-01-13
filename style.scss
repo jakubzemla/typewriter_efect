@@ -45,9 +45,6 @@ $text-color: #fff;
             weight: bold;
         }
         position: relative;
-        a {
-            color: $text-color;
-        }
     }
 
     p::before, p::after { // do not change

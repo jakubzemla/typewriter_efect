@@ -4,8 +4,6 @@ let totalDelay = 0
 let multiplier = 0.05; //ANIMATION SPEED SETTER
 for (line of frame) {
 	if (i < frame.length) {
-		let beforeStyles = window.getComputedStyle(line, '::before')
-		let afterStyles = window.getComputedStyle(line, '::after')
 		if (i != 1) {
 			line.style.setProperty('--delay', `${totalDelay + 1.5}s`)
 			line.style.setProperty('--start', `${totalDelay}s`)
@@ -14,7 +12,6 @@ for (line of frame) {
 		line.style.setProperty('--steps', `${line.innerText.length}`)
 		totalDelay = totalDelay + 1.7 + (line.innerText.length * multiplier);
 	} else {
-		let lineStyles = window.getComputedStyle(line)
 		line.classList.remove('line')
 		line.classList.add('last-line')
 		line.style.setProperty('--delay', `${totalDelay}s`)
